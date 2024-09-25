@@ -2,10 +2,14 @@ FROM golang:1.21
 
 WORKDIR /go/src
 
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
 RUN go get -u github.com/spf13/cobra@latest && \
     go install github.com/golang/mock/mockgen@latest && \
     go install github.com/spf13/cobra-cli@latest
-
 
 RUN apt-get update && apt-get install sqlite3 -y
 
@@ -14,11 +18,7 @@ RUN mkdir -p /var/www/.cache
 RUN chown -R www-data:www-data /go
 RUN chown -R www-data:www-data /var/www/.cache
 
-COPY go.mod go.sum ./
-RUN go mod download
-
-COPY . .
-
 USER www-data
 
-CMD ["go", "run", "./cmd/main.go"]
+# CMD ["go", "run", "./cmd/main.go"]
+CMD ["tail", "-f", "/dev/null"]
