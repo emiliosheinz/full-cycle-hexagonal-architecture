@@ -13,3 +13,6 @@ Hexagonal Architecture is a way to achieve this separation. It was created by Al
 
 The main concept that allows this separation to happen is the Dependency Inversion Principle. High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.
 
+docker exec -it appproduct sh
+sqlite3 sqlite.db
+create table products(id string, name string, price float, status string);
