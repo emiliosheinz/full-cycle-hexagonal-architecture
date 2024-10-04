@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/emiliosheinz/exagonal-architecture/adapters/cli"
 	mock_application "github.com/emiliosheinz/exagonal-architecture/application/mocks"
-	"github.com/emiliosheinz/exagonal-architecture/cli"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
 )

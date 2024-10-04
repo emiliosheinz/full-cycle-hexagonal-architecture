@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/emiliosheinz/exagonal-architecture/cli"
+	"github.com/emiliosheinz/exagonal-architecture/adapters/cli"
 	"github.com/spf13/cobra"
 )
 

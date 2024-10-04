@@ -18,8 +18,27 @@ The main concept that allows this separation to happen is the Dependency Inversi
 1. Clone this repo
 2. Run `docker-compose up -d`
 3. Run `docker exec -it appproduct sh`
+4. Run `sqlite3 sqlite.db` to access the database
+5. Run `create table products(id string, name string, price float, status string);` to create the products table 
 
+### Now you can use the cli to interact with the app
 
-docker exec -it appproduct sh
-sqlite3 sqlite.db
-create table products(id string, name string, price float, status string);
+1. Create a new product
+    ```bash
+    go run main.go cli -a=create -p=<product_price> -n="<product_name>"
+    ```
+
+1. Enable a product
+    ```bash
+    go run main.go cli -a=enable -i=<product_id>
+    ```
+
+1. Disable a product
+    ```bash
+    go run main.go cli -a=disable -i=<product_id>
+    ```
+
+1. Get product details 
+    ```bash
+    go run main.go cli -i=<product_id>
+    ```
