@@ -42,3 +42,30 @@ The main concept that allows this separation to happen is the Dependency Inversi
     ```bash
     go run main.go cli -i=<product_id>
     ```
+
+## Or run the HTTP server and use the API
+
+1. Run the server
+    ```bash
+    go run main.go http
+    ```
+
+1. Create a new product
+    ```bash
+    curl -X POST http://localhost:9000/product -d '{"name": "<product_name>", "price": <product_price>}'
+    ```
+1. Get product details
+    ```bash
+    curl -X GET http://localhost:9000/product/<product_id>
+    ```
+
+1. Enable a product
+    ```bash
+    curl -X POST http://localhost:9000/product/<product_id>/enable
+    ```
+
+1. Disable a product
+    ```bash
+    curl -X POST http://localhost:9000/product/<product_id>/disable
+    ```
+
